@@ -1,0 +1,105 @@
+.leaderboards {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    color: rgb(109, 201, 34);
+  
+    margin: 0 20px;
+  
+    a {
+      text-align: center;
+  
+      span {
+        text-decoration: underline;
+      }
+    }
+  
+    label {
+      span {
+        text-decoration: none;
+      }
+    }
+  }
+  .leaderboards__body {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+  
+    max-width: 800px;
+    width: 100%;
+  
+    margin: 20px auto;
+    padding: 20px 15px;
+    border: 1px solid rgb(109, 201, 34);
+    box-shadow: 1px 1px 20px 4px rgb(177, 177, 177);
+  } 
+  
+  .leaderboards__title {
+    text-align: center;
+    font-weight: normal;
+  }
+  
+  .leaderboards__empty {
+    text-align: center;
+    font-size: clamp(20px, 7vw, 50px);
+    font-weight: normal;
+  }
+  
+  .leaderboards__list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5em;
+  
+    width: 100%;
+    padding: 0 2em 0 2em;
+    margin: 1em 0;
+  }
+  
+  .leaderboards__info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 1em;
+  }
+  
+  .leaderboards__item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    position: relative;
+  
+    &::before {
+      content: "";
+      position: absolute;
+      left: -10px;
+      right: -10px;
+      bottom: 0;
+      height: 1px;
+      background-color: rgb(109, 201, 34);
+    }
+  }
+  
+  .leaderboards__name {
+    text-overflow: ellipsis;
+    max-width: 140px;
+    white-space: nowrap;
+    overflow: hidden;
+    @media (min-width: 556px) {
+      max-width: 230px;
+    }
+    @media (min-width: 768px) {
+      max-width: 400px;
+    }
+    @media (min-width: 998px) {
+      max-width: 600px;
+    }
+  }
+
+  .leaderboards__back {
+    text-align: center;
+    text-decoration: underline;
+    cursor: pointer;
+  }
+  

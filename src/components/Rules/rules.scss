@@ -1,6 +1,4 @@
 .rules {
-  margin: 0 20px;
-
   &__back {
     cursor: pointer;
   }
@@ -12,13 +10,13 @@
   flex-direction: column;
   position: relative;
 
-  margin: 0 20px;
+  color: rgb(109, 201, 34);
 
   max-width: 800px;
   width: 100%;
 
   margin: 20px auto;
-  padding: 20px 15px 70px 15px;
+  padding: 20px 15px 80px 15px;
   box-shadow: 1px 1px 20px 4px rgb(177, 177, 177);
 
   a {
@@ -49,7 +47,17 @@
   position: absolute;
   right: 50%;
   transform: translateX(50%);
-  bottom: 30px;
-  border: 1px solid black;
+  bottom: 20px;
+  border: 1px solid rgb(109, 201, 34);
   padding: 10px;
+
+  span {
+    letter-spacing: 5px;
+  }
+}
+
+@media (min-width: 576px) {
+  .rules {
+    margin: 0 20px;
+  }
 }

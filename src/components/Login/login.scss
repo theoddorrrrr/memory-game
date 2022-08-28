@@ -19,6 +19,7 @@
   font-size: clamp(20px, 7vw, 40px);
   line-height: clamp(25px, 7vw, 45px);
   cursor: default;
+  color: rgb(109, 201, 34);
 }
 
 .login__label {
@@ -33,14 +34,19 @@
   background-color: inherit;
   padding: 9px 17px;
   border-radius: 4px;
-  border: 1px solid black;
+  border: 1px solid rgb(109, 201, 34);
+  color: rgb(109, 201, 34);
 
+  &::placeholder {
+    color: rgb(109, 201, 34);
+  }
   &:focus {
-    outline: 1px solid grey;
+    outline: 1px solid rgb(255, 255, 255);
   }
 }
 
 .login small {
+  color: rgb(255, 91, 91);
   opacity: 0;
   visibility: hidden;
 }
@@ -66,7 +72,7 @@
   margin: 10px auto 0 auto;
 
   background-color: transparent;
-  color: rgb(58, 61, 63);
+  color: rgb(109, 201, 34);
   letter-spacing: 4px;
   font-size: 20px;
   text-decoration: underline;
@@ -84,6 +90,7 @@
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
+    color: rgb(109, 201, 34);
 
     width: 135px;
     position: relative;
@@ -95,9 +102,10 @@
     }
 
     .active {
-        background-color: #3a3d3f;
-        color: white;
-      }
+      background-color: rgb(109, 201, 34);
+      color: white;
+      border: white;
+    }
 
     label {
       display: flex;
@@ -106,13 +114,12 @@
 
       width: 100%;
 
-      border: 1px solid black;
+      border: 1px solid rgb(109, 201, 34);
       padding: 1em;
       transition: 0.3s ease;
       &:active {
         transform: scale(0.98);
       }
-
     }
   }
 }

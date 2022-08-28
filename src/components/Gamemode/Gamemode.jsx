@@ -5,30 +5,30 @@ const Gamemode = ({ gamemode, setGamemode }) => {
     <div className="game-mode">
       <label
         className="game-mode__label"
-        onClick={() => setGamemode("practice")}
+        onClick={() => setGamemode("easy")}
       >
         <input
           type="radio"
           name="gamemode"
-          value="practice"
-          id="practice"
+          value="easy"
+          id="easy"
         />
-        <label className={gamemode === 'practice' ? "active" : ""}>
-          <span>Practice</span>
+        <label className={gamemode === 'easy' ? "active" : ""}>
+          <span>Easy</span>
         </label>
       </label>
       <label
         className="game-mode__label"
-        onClick={() => setGamemode("time-attack")}
+        onClick={() => setGamemode("hard")}
       >
         <input
           type="radio"
           name="gamemode" 
-          value="time-attack"
-          id="time-attack"
+          value="hard"
+          id="hard"
         />
-        <label className={gamemode === 'time-attack' ? "active" : ""}>
-          <span>Time-Attack</span>
+        <label className={gamemode === 'hard' ? "active" : ""}>
+          <span>Hard</span>
         </label>
       </label>
     </div>

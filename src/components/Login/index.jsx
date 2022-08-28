@@ -6,8 +6,10 @@ import LoginInput from "./LoginInput";
 import PlayButton from "./PlayButton";
 
 const Login = () => {
-  const [gamemode, setGamemode] = useState("time-attack");
-  const [username, setUsername] = useState("");
+  const user = JSON.parse(localStorage.getItem('user'))
+
+  const [gamemode, setGamemode] = useState("hard");
+  const [username, setUsername] = useState(user ? user.username : "");
   const [isClickedBtn, setIsClickedBtn] = useState(false);
 
   const navigate = useNavigate()

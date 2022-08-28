@@ -1,9 +1,12 @@
-import React from 'react'
+import React, { useState } from "react";
+import Leaderboards from "../../components/Leaderboards";
 
-const Leaderboards = () => {
+const LeaderboardsPage = () => {
+  const [gamemode, setGamemode] = useState("hard");
+
   return (
-    <div>Leaderboards</div>
-  )
-}
+    <Leaderboards gamemode={gamemode} setGamemode={setGamemode} />
+  );
+};
 
-export default Leaderboards
+export default LeaderboardsPage;

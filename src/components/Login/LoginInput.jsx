@@ -1,8 +1,6 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
 
 const LoginInput = ({ username, setUsername, isClickedBtn, goPlay }) => {
-  const navigate = useNavigate();
 
   const inputHandler = (e) => {
     setUsername(e.target.value);
@@ -18,6 +16,8 @@ const LoginInput = ({ username, setUsername, isClickedBtn, goPlay }) => {
         className="login__input"
         placeholder="Enter your nickname"
         onKeyUp={inputHandler}
+        value={username}
+        onChange={(e) => setUsername(e.target.value)}
       />
       <small
         className={isClickedBtn && username.trim() === "" ? "_visible" : ""}

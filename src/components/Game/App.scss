@@ -1,28 +1,193 @@
 .game__container {
   display: grid;
   gap: 1em;
-  grid-template-columns: repeat(2, minmax(120px, 1fr));
-  grid-auto-rows: 200px;
+  grid-template-columns: repeat(2, minmax(50px, 100px));
+  justify-content: center;
+  grid-auto-rows: 120px;
 
   max-width: 1050px;
   margin: 0 auto;
 
   text-align: center;
+
+  margin-bottom: 2em;
   @media (min-width: 420px) {
-    grid-template-columns: repeat(2, minmax(180px, 1fr));
-    grid-auto-rows: 250px;
+    grid-template-columns: repeat(2, minmax(80px, 130px));
+    grid-auto-rows: 150px;
+
+    padding: 1em;
+  }
+  @media (min-width: 576px) {
+    grid-template-columns: repeat(2, minmax(100px, 150px));
+    grid-auto-rows: 170px;
 
     padding: 2em;
   }
-  @media (min-width: 576px) {
-    grid-template-columns: repeat(2, minmax(220px, 1fr));
-    grid-auto-rows: 300px;
-
-    padding: 3em;
-  }
   @media (min-width: 768px) {
-    grid-template-columns: repeat(4, minmax(220px, 1fr));
-    grid-auto-rows: 300px;
-
+    grid-template-columns: repeat(4, minmax(100px, 150px));
+    grid-auto-rows: 170px;
   }
+}
+
+// End
+.game-end {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+
+  color: white;
+
+  background-color: rgb(109, 201, 34);
+  z-index: 100;
+  transition: 0.5s;
+
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+
+  span {
+    text-decoration: underline;
+  }
+
+  &__info {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5em;
+    cursor: default;
+  }
+
+  &__title {
+    margin-bottom: 0.5em;
+    text-decoration: underline;
+  }
+
+  &_show {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: all;
+  }
+}
+.game-end__body {
+  border: 1px solid white;
+  padding: 2em;
+
+  text-align: center;
+
+  a {
+    color: inherit;
+  }
+}
+.game-end__back {
+  text-decoration: underline;
+  cursor: pointer;
+  margin-bottom: 10px;
+}
+
+.game-end__btn {
+  width: 100%;
+  max-width: 250px;
+
+  background-color: rgb(109, 201, 34);
+  color:white;
+  border: 2px dashed white;
+  border-radius: 0;
+  padding: 0.5em 3em;
+  margin: 10px auto 0 auto;
+}
+
+// Menu
+.game-menu {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+
+  color: white;
+
+  background-color: rgb(109, 201, 34);
+  z-index: 101;
+  transition: 0.5s;
+
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+
+  &__body {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &_visible {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: all;
+  }
+
+  button {
+    width: 100%;
+    max-width: 250px;
+
+    color: white;
+    border-radius: 0;
+    padding: 0.5em 3em;
+    margin: 10px auto 0 auto;
+  }
+}
+
+// Burger
+.icon-menu {
+  display: flex;
+  position: absolute;
+  z-index: 5;
+
+  top: 20px;
+  left: 20px;
+
+  height: 24px;
+  width: 30px;
+  cursor: pointer;
+  z-index: 7;
+  background-color: inherit;
+  border: 0;
+}
+.icon-menu span {
+  transition: all 0.3s ease;
+  top: calc(50% - 1px);
+  left: 0px;
+  position: absolute;
+  width: 100%;
+  height: 3px;
+  background-color: #000;
+  border-radius: 5px;
+}
+.icon-menu span:first-child {
+  top: 0px;
+}
+.icon-menu span:last-child {
+  top: auto;
+  bottom: 0px;
+}
+.icon-menu._active span {
+  transform: scale(0);
+}
+.icon-menu._active span:first-child {
+  transform: rotate(-45deg);
+  top: 12px;
+}
+.icon-menu._active span:last-child {
+  transform: rotate(45deg);
+  top: 12px;
 }

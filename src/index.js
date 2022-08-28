@@ -1,10 +1,12 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+
 import "./index.scss";
+
 import GamePage from "./pages/GamePage";
 import Layout from "./pages/LayoutPage";
-import Leaderboards from "./pages/Leadearboards";
+import LeaderboardsPage from "./pages/Leadearboards";
 import LoginPage from "./pages/LoginPage";
 import RulesPage from "./pages/RulesPage";
 
@@ -17,7 +19,7 @@ root.render(
       <Route path="/rules" element={<Layout children={<RulesPage />} />} />
       <Route
         path="/leaderboards"
-        element={<Layout children={<Leaderboards />} />}
+        element={<Layout children={<LeaderboardsPage />} />}
       />
     </Routes>
   </BrowserRouter>

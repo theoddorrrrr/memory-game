@@ -1,20 +1,75 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./card.scss";
 
-const Card = ({ card }) => {
-  const handleClick = () => {
-    console.log("click");
+import unknownImg from "../../assets/card.jpg";
+
+const Card = ({
+  card,
+  setOpenCards,
+  openCards,
+  setMoves,
+  removedCards,
+  setRemovedCards,
+  setIntervalId,
+  intervalId,
+  setCount,
+  showModal,
+}) => {
+  const [isOpen, setIsOpen] = useState(false);
+
+  const isMatch =
+    openCards.length === 2
+      ? openCards.every((item) => item === card.title)
+      : false;
+
+  const issRemoved = removedCards.some((item) => item === card.title);
+
+  useEffect(() => {
+    setTimeout(() => {
+      if (isMatch) {
+        setRemovedCards([...removedCards, ...openCards]);
+        setOpenCards([]);
+      }
+    }, 500);
+  }, [isMatch]);
+
+  useEffect(() => {
+    setTimeout(() => {
+      if (openCards.length === 2) {
+        setIsOpen(false);
+        setOpenCards([]);
+      }
+    }, 500);
+  }, [openCards]);
+
+  const handleOpen = () => {
+    if (!intervalId) {
+      const interval = setInterval(() => {
+        if (!showModal) {
+          setCount((prev) => prev + 1);
+        }
+      }, 1000);
+      setIntervalId(interval);
+    }
+
+    if (openCards.length < 2) {
+      setIsOpen(true);
+      setOpenCards([...openCards, card.title]);
+      setMoves((prev) => (isOpen ? prev : prev + 1));
+    }
   };
 
   return (
-    <div className="card" onClick={handleClick}>
-      <div className="card-face card-font-face">
-        <img
-          src="https://images.unsplash.com/photo-1601027847350-0285867c31f7?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80"
-          alt="card"
-        />
+    <div
+      className={
+        issRemoved ? "card card_close" : isOpen ? "card card_flip" : "card"
+      }
+      onClick={handleOpen}
+    >
+      <div className="card-img">
+        <img src={unknownImg} alt="card" />
       </div>
-      <div className="card-face card-back-face">
+      <div className="card-img card-fliped">
         <img src={card.img} alt="card" />
       </div>
     </div>

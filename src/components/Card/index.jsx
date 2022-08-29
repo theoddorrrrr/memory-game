@@ -16,6 +16,7 @@ const Card = ({
   showModal,
 }) => {
   const [isOpen, setIsOpen] = useState(false);
+  const [isLoaded, setIsLoaded] = useState(false);
 
   const isMatch =
     openCards.length === 2
@@ -43,20 +44,26 @@ const Card = ({
   }, [openCards]);
 
   const handleOpen = () => {
-    if (!intervalId) {
-      const interval = setInterval(() => {
-        if (!showModal) {
-          setCount((prev) => prev + 1);
-        }
-      }, 1000);
-      setIntervalId(interval);
+    if(isLoaded) {
+      if (!intervalId) {
+        const interval = setInterval(() => {
+          if (!showModal) {
+            setCount((prev) => prev + 1);
+          }
+        }, 1000);
+        setIntervalId(interval);
+      }
+  
+      if (openCards.length < 2) {
+        setIsOpen(true);
+        setOpenCards([...openCards, card.title]);
+        setMoves((prev) => (isOpen ? prev : prev + 1));
+      }
     }
+  };
 
-    if (openCards.length < 2) {
-      setIsOpen(true);
-      setOpenCards([...openCards, card.title]);
-      setMoves((prev) => (isOpen ? prev : prev + 1));
-    }
+  const imageLoad = () => {
+    setIsLoaded(true);
   };
 
   return (
@@ -67,7 +74,12 @@ const Card = ({
       onClick={handleOpen}
     >
       <div className="card-img">
-        <img src={unknownImg} alt="card" />
+        <img src={unknownImg} alt="card" onLoad={imageLoad} />
+        {!isLoaded && (
+          <div className="loader">
+            <span>Loading</span>
+          </div>
+        )}
       </div>
       <div className="card-img card-fliped">
         <img src={card.img} alt="card" />

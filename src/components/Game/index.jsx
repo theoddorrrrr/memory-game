@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import Card from "../Card";
-import "./App.scss";
+import "./game.scss";
 
 function Game({
   count,

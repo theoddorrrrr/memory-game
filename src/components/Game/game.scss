@@ -1,9 +1,9 @@
 .game__container {
   display: grid;
   gap: 1em;
-  grid-template-columns: repeat(2, minmax(50px, 100px));
+  grid-template-columns: repeat(4, 60px);
   justify-content: center;
-  grid-auto-rows: 120px;
+  grid-auto-rows: 70px;
 
   max-width: 1050px;
   margin: 0 auto;
@@ -12,20 +12,16 @@
 
   margin-bottom: 2em;
   @media (min-width: 420px) {
-    grid-template-columns: repeat(2, minmax(80px, 130px));
-    grid-auto-rows: 150px;
+    grid-template-columns: repeat(4, minmax(30px, 100px));
+    grid-auto-rows: 100px;
 
     padding: 1em;
   }
   @media (min-width: 576px) {
-    grid-template-columns: repeat(2, minmax(100px, 150px));
-    grid-auto-rows: 170px;
+    grid-template-columns: repeat(4, minmax(50px, 120px));
+    grid-auto-rows: 120px;
 
     padding: 2em;
-  }
-  @media (min-width: 768px) {
-    grid-template-columns: repeat(4, minmax(100px, 150px));
-    grid-auto-rows: 170px;
   }
 }
 

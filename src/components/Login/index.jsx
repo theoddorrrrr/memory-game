@@ -33,7 +33,7 @@ const Login = () => {
         <Link className="btn btn-leaderboards" to="leaderboards">
           Leaderboards
         </Link>
-        <Link className="btn btn-leaderboards" to="Rules">
+        <Link className="btn btn-leaderboards" to="rules">
           Rules
         </Link>
         <PlayButton username={username} setIsClickedBtn={setIsClickedBtn} goPlay={goPlay}/>

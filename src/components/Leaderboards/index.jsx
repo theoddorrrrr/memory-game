@@ -43,7 +43,9 @@ const Leaderboards = ({ gamemode, setGamemode }) => {
             </label>
           </label>
         </div>
-        <h1 className="leaderboards__title">Leaderboards </h1>
+        {users.length > 0 && (
+          <h1 className="leaderboards__title">Leaderboards </h1>
+        )}
         <div className="leaderboards__info">
           <span>Username</span>
           <span>Score</span>
@@ -54,7 +56,7 @@ const Leaderboards = ({ gamemode, setGamemode }) => {
               The Leaderboards are empty
             </div>
           ) : (
-            users.map((item, index) => <User user={item} key={index} />)
+            users.sort((a, b) => a.score - b.score).map((item, index) => <User user={item} key={index} />)
           )}
         </ul>
       </div>

@@ -128,3 +128,22 @@ label {
   visibility: hidden;
   overflow: hidden;
 }
+
+select {
+  background-color: transparent;
+  border: 1px solid rgb(109, 201, 34);
+  padding: 0.5em 1em;
+  color: rgb(109, 201, 34);
+
+  font-family: inherit;
+  font-size: inherit;
+  cursor: pointer;
+  line-height: inherit;
+
+  margin: 0 auto;
+  max-width: 250px;
+
+  &:focus {
+    outline: none;
+  }
+}
